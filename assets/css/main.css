@@ -1,0 +1,15 @@
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";
+
+
+body {
+    background-color: #f7fafc;
+    font-family: Poppins;
+}
+
+button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
