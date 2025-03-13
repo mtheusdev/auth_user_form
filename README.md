@@ -1,75 +1,49 @@
-# Nuxt Minimal Starter
+# Frontend Vue/Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Requisitos
 
-## Setup
+- [Node.js](https://nodejs.org/) (versão recomendada: 18+)
+- [pnpm](https://pnpm.io/)
 
-Make sure to install dependencies:
+## Configuração do Ambiente
 
-```bash
-# npm
-npm install
+Crie um arquivo `.env` na raiz do projeto e configure a URL da API:
 
-# pnpm
+```
+API_URL=http://localhost:8000
+```
+
+## Instalação das Dependências
+
+Execute o seguinte comando para instalar as dependências do projeto:
+
+```sh
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Executando o Servidor de Desenvolvimento
 
-Start the development server on `http://localhost:3000`:
+Para iniciar o frontend em ambiente de desenvolvimento, utilize o comando:
 
-```bash
-# npm
-npm run dev
-
-# pnpm
+```sh
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+O projeto estará acessível em `http://localhost:3000/` por padrão.
 
-Build the application for production:
+## Build para Produção
 
-```bash
-# npm
-npm run build
+Para gerar os arquivos de build do frontend, utilize:
 
-# pnpm
+```sh
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Os arquivos serão gerados na pasta `.output/`. Dependendo da configuração do Nuxt, o comando para iniciar a aplicação em produção pode variar.
 
-```bash
-# npm
-npm run preview
+## Scripts Disponíveis
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- **Instalar dependências:** `pnpm install`
+- **Iniciar o servidor de desenvolvimento:** `pnpm dev`
+- **Gerar build para produção:** `pnpm build`
+- **Executar o projeto em modo de produção:** `pnpm start` (se aplicável)

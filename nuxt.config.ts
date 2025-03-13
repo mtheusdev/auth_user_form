@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiUrl: process.env.API_URL || "/api",
-      authTokenKey: process.env.AUTH_TOKEN_KEY || "auth_token",
     },
   },
 });
