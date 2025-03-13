@@ -5,6 +5,10 @@ import {
   registerSchema,
 } from "../../schemas/auth/register.schema";
 
+const toast = useToast();
+const router = useRouter();
+const { register, isLoading, error } = useAuth();
+
 const state = reactive({
   name: "",
   email: "",
@@ -15,7 +19,26 @@ const state = reactive({
 });
 
 async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
-  console.log(event.data);
+  const { name, email, password } = event.data;
+
+  const success = await register({ email, password, name });
+
+  if (success) {
+    toast.add({
+      title: "Cadastro efetuado com sucesso",
+      description: "Você será redirecionado para a home",
+      color: "success",
+    });
+    router.push("/");
+
+    return;
+  }
+
+  toast.add({
+    title: "Erro de autenticação",
+    description: error.value || "Ocorreu um erro ao tentar se cadastrar",
+    color: "error",
+  });
 }
 </script>
 
@@ -103,7 +126,12 @@ async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
           />
         </UFormField>
 
-        <UButton type="submit" color="neutral" size="xl" class="w-full"
+        <UButton
+          type="submit"
+          color="neutral"
+          size="xl"
+          class="w-full"
+          :loading="isLoading"
           >Registrar</UButton
         >
       </UForm>

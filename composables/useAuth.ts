@@ -50,6 +50,8 @@ export function useAuth() {
 
     try {
       currentUser.value = await authService.register(data);
+      console.log("Usuário registrado com sucesso", currentUser.value);
+
       return true;
     } catch (err) {
       error.value = "Falha ao registrar usuário";

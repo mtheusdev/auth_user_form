@@ -3,9 +3,9 @@ import type { FormSubmitEvent } from "@nuxt/ui";
 import { useAuth } from "~/composables/useAuth";
 import { type LoginSchema, loginSchema } from "../../schemas/auth/login.schema";
 
-const { login, isLoading, error } = useAuth();
-
 const toast = useToast();
+const router = useRouter();
+const { login, isLoading, error } = useAuth();
 
 const state = reactive({
   email: "",
@@ -13,8 +13,6 @@ const state = reactive({
   showPassword: false,
   rememberMe: false,
 });
-
-const router = useRouter();
 
 async function onSubmit(event: FormSubmitEvent<LoginSchema>) {
   const { email, password } = event.data;
@@ -24,10 +22,10 @@ async function onSubmit(event: FormSubmitEvent<LoginSchema>) {
   if (success) {
     toast.add({
       title: "Login efetuado com sucesso",
-      description: "Você será redirecionado para o dashboard",
+      description: "Você será redirecionado para a home",
       color: "success",
     });
-    router.push("/dashboard");
+    router.push("/");
 
     return;
   }
