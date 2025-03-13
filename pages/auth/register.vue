@@ -114,7 +114,7 @@ async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
           to="/auth/login"
           class="font-medium text-secondary hover:text-secondary-500 hover:underline transition-all duration-300 ease-in-out"
         >
-          Faça login aqui
+          Acesse agora
         </NuxtLink>
       </p>
     </div>
