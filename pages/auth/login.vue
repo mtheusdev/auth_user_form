@@ -19,7 +19,7 @@ const router = useRouter();
 async function onSubmit(event: FormSubmitEvent<LoginSchema>) {
   const { email, password } = event.data;
 
-  const success = await login(email, password);
+  const success = await login({ email, password });
 
   if (success) {
     toast.add({

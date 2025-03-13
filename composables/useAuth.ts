@@ -1,4 +1,6 @@
 import { computed, ref } from "vue";
+import type { LoginDTO } from "~/dtos/auth/login.dto";
+import type { RegisterDTO } from "~/dtos/auth/register.dto";
 import type { User } from "~/models/user.model";
 import { AuthService } from "~/services/auth/auth.service";
 
@@ -26,7 +28,7 @@ export function useAuth() {
     }
   }
 
-  async function login(email: string, password: string) {
+  async function login({ email, password }: LoginDTO) {
     isLoading.value = true;
     error.value = null;
 
@@ -42,12 +44,12 @@ export function useAuth() {
     }
   }
 
-  async function register(userData: Partial<User>) {
+  async function register(data: RegisterDTO) {
     isLoading.value = true;
     error.value = null;
 
     try {
-      currentUser.value = await authService.register(userData);
+      currentUser.value = await authService.register(data);
       return true;
     } catch (err) {
       error.value = "Falha ao registrar usuário";
