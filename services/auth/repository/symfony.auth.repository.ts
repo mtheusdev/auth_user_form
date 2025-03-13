@@ -44,10 +44,11 @@ export class SymfonyAuthRepository implements AuthRepository {
   }
 
   async logout(): Promise<void> {
-    await $fetch(`${this.API_URL}/logout`, {
-      method: "POST",
-      headers: this.getAuthHeaders(),
-    });
+    // TODO: Implement logout endpoint
+    // await $fetch(`${this.API_URL}/logout`, {
+    //   method: "POST",
+    //   headers: this.getAuthHeaders(),
+    // });
 
     this.clearToken();
   }
