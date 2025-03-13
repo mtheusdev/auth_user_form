@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from "@nuxt/ui";
+import { useAuth } from "~/composables/useAuth";
 import { type LoginSchema, loginSchema } from "../../schemas/auth/login.schema";
+
+const { login, isLoading, error } = useAuth();
+
+const toast = useToast();
 
 const state = reactive({
   email: "",
@@ -9,14 +14,35 @@ const state = reactive({
   rememberMe: false,
 });
 
+const router = useRouter();
+
 async function onSubmit(event: FormSubmitEvent<LoginSchema>) {
-  console.log(event.data);
+  const { email, password } = event.data;
+
+  const success = await login(email, password);
+
+  if (success) {
+    toast.add({
+      title: "Login efetuado com sucesso",
+      description: "Você será redirecionado para o dashboard",
+      color: "success",
+    });
+    router.push("/dashboard");
+
+    return;
+  }
+
+  toast.add({
+    title: "Erro de autenticação",
+    description: error.value || "Ocorreu um erro ao tentar efetuar o login",
+    color: "error",
+  });
 }
 </script>
 
 <template>
   <div class="min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full rounded-3xl bg-white shadow-2xl p-8">
+    <div class="max-w-lg w-full rounded-3xl bg-white shadow-2xl p-12">
       <div class="flex flex-col items-center mb-8">
         <NuxtImg src="logo.png" alt="Logo" width="50" height="50" />
         <h2 class="text-2xl mt-4 font-bold text-gray-800">
@@ -107,7 +133,12 @@ async function onSubmit(event: FormSubmitEvent<LoginSchema>) {
             >Esqueceu a senha?</ULink
           >
         </div>
-        <UButton type="submit" color="neutral" size="xl" class="w-full"
+        <UButton
+          type="submit"
+          color="neutral"
+          size="xl"
+          class="w-full"
+          :loading="isLoading"
           >Entrar</UButton
         >
       </UForm>

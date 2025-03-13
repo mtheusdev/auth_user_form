@@ -21,7 +21,7 @@ async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
 
 <template>
   <div class="min-h-screen flex items-center justify-center">
-    <div class="max-w-xl w-full rounded-3xl bg-white shadow-2xl p-8">
+    <div class="max-w-xl w-full rounded-3xl bg-white shadow-2xl p-12">
       <div class="flex flex-col items-center mb-8">
         <NuxtImg src="logo.png" alt="Logo" width="50" height="50" />
         <h2 class="text-2xl mt-4 font-bold text-gray-800">Crie sua conta</h2>
@@ -94,7 +94,7 @@ async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
           />
         </UFormField>
 
-        <UFormField required name="acceptTerms" class="mb-4">
+        <UFormField required name="acceptTerms" class="mb-6">
           <UCheckbox
             required
             label="Aceito os termos e condições"
