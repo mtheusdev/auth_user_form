@@ -35,8 +35,8 @@ const handleLogout = async () => {
       class="max-w-2xl w-full rounded-3xl bg-white shadow-2xl p-12 flex items-center justify-between gap-4"
     >
       <div class="flex flex-col items-start gap-4">
-        <h2 class="text-3xl mt-4 font-normal text-gray-800">
-          Bem vindo de volta, <b>{{ currentUser?.name }}</b
+        <h2 class="text-3xl mt-4 font-normal text-gray-800 text-nowrap">
+          Bem vindo, <b>{{ currentUser?.name }}</b
           >!
         </h2>
 
