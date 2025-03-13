@@ -5,14 +5,17 @@
 - [Node.js](https://nodejs.org/) (versão recomendada: 18+)
 - [pnpm](https://pnpm.io/)
 
-## Configuração do Ambiente
+## Subindo o Projeto
 
-Crie um arquivo `.env` na raiz do projeto e configure a URL da API:
-
-```
-API_URL=http://localhost:8000
-```
-
+1. Clone o repositório e navegue até o diretório do projeto:
+   ```sh
+   git clone <seu-repositorio>
+   cd <seu-repositorio>
+   ```
+2. Crie um arquivo `.env` na raiz do projeto e configure a URL da API:
+    ```
+    API_URL=http://localhost:8000
+    ```
 ## Instalação das Dependências
 
 Execute o seguinte comando para instalar as dependências do projeto:
